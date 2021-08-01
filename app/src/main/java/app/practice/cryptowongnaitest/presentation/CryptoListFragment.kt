@@ -17,10 +17,12 @@ import app.practice.cryptowongnaitest.presentation.models.UiState
 import app.practice.cryptowongnaitest.utils.NetworkListener
 import app.practice.cryptowongnaitest.utils.hideKeyboard
 import app.practice.cryptowongnaitest.utils.observeOnce
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+@FlowPreview
 class CryptoListFragment : BaseFragment<FragmentCryptoListBinding>() {
 
     private val cryptoListViewModel by viewModel<CryptoListViewModel>()
@@ -74,6 +76,7 @@ class CryptoListFragment : BaseFragment<FragmentCryptoListBinding>() {
     }
 
     private fun FragmentCryptoListBinding.bindList(uiState: StateFlow<UiState>) {
+
         cryptoRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = this@CryptoListFragment.adapter.withLoadStateFooter(

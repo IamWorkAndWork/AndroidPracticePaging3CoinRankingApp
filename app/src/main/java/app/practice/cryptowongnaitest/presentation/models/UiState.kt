@@ -6,6 +6,5 @@ import app.practice.cryptowongnaitest.utils.DEFAULT_QUERY
 
 data class UiState(
     val query: String = DEFAULT_QUERY,
-    val lastQueryScrolled: String = DEFAULT_QUERY,
     val pagingData: PagingData<UiModel> = PagingData.empty()
 )

@@ -1,7 +1,6 @@
 package app.practice.cryptowongnaitest.di
 
 import app.practice.cryptowongnaitest.data.api.ApiService
-import com.google.gson.Gson
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

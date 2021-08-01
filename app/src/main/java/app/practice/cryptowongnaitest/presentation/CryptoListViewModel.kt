@@ -21,6 +21,7 @@ import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 
+@FlowPreview
 @OptIn(ExperimentalCoroutinesApi::class)
 class CryptoListViewModel(
     private val getCryptoPagingDataUseCase: GetCryptoPagingDataUseCase,
@@ -70,7 +71,6 @@ class CryptoListViewModel(
         }
     }
 
-    @OptIn(FlowPreview::class)
     private fun searchRepo(searchQuery: String): Flow<PagingData<UiModel>> {
         if (searchQuery.isEmpty()) {
 
@@ -85,10 +85,6 @@ class CryptoListViewModel(
                 }
                 .cachedIn(viewModelScope)
         }
-    }
-
-    override fun showError(message: String) {
-
     }
 
     override fun onCleared() {
