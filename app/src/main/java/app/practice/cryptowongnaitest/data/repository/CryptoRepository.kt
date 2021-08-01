@@ -15,18 +15,23 @@ class CryptoRepositoryImpl(
 
     override fun getSearchCryptoList(searchQuery: String) = flow {
         val cryptoList = mutableListOf<Crypto>()
+
         getResponse(cryptoDataSource.searchCoinsByIds(ids = searchQuery))?.let { _cryptoList ->
             cryptoList.addAll(_cryptoList)
         }
+
         getResponse(cryptoDataSource.searchCoinsByPrefix(prefix = searchQuery))?.let { _cryptoList ->
             cryptoList.addAll(_cryptoList)
         }
+
         getResponse(cryptoDataSource.searchCoinsBySlugs(slugs = searchQuery))?.let { _cryptoList ->
             cryptoList.addAll(_cryptoList)
         }
+
         getResponse(cryptoDataSource.searchCoinsBySymbols(symbols = searchQuery))?.let { _cryptoList ->
             cryptoList.addAll(_cryptoList)
         }
+
         val result = Result.success(cryptoList)
         emit(result)
     }

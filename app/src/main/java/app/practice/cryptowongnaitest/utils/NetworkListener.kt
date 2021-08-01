@@ -7,20 +7,23 @@ import android.net.NetworkCapabilities
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-class NetworkListener :ConnectivityManager.NetworkCallback() {
 
-    private var isNetworkAvailable = MutableStateFlow(false)
+class NetworkListener : ConnectivityManager.NetworkCallback() {
 
-    fun checkNetworkAvailable(context: Context): StateFlow<Boolean> {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    private val isNetworkAvailable = MutableStateFlow(false)
+
+    fun checkNetworkAvailalibility(context: Context): StateFlow<Boolean> {
+
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         connectivityManager.registerDefaultNetworkCallback(this)
 
         var isConnected = false
 
-        connectivityManager.allNetworks.forEach { network->
-            val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
-            networkCapabilities?.let {
-                if (it.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)){
+        connectivityManager.allNetworks.forEach { network ->
+            val networkCapability = connectivityManager.getNetworkCapabilities(network)
+            networkCapability?.let {
+                if (it.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
                     isConnected = true
                     return@forEach
                 }
@@ -30,13 +33,14 @@ class NetworkListener :ConnectivityManager.NetworkCallback() {
         isNetworkAvailable.value = isConnected
 
         return isNetworkAvailable
+
     }
 
     override fun onAvailable(network: Network) {
         isNetworkAvailable.value = true
     }
 
-    override fun onUnavailable() {
+    override fun onLost(network: Network) {
         isNetworkAvailable.value = false
     }
 

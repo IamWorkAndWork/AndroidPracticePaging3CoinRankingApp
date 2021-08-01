@@ -17,9 +17,13 @@ class CryptoDefaultViewHolder(private val binding: ItemCryptoDefaultBinding) :
         }
     }
 
-    fun bind(model: UiModel.CryptoDefaultItem) {
+    fun bind(model: UiModel.CryptoDefaultItem, listener: (UiModel) -> Unit) {
         with(binding) {
             uiModel = model.crypto
+
+            root.setOnClickListener {
+                listener.invoke(model)
+            }
         }
     }
 

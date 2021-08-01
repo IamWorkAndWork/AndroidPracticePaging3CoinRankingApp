@@ -32,7 +32,7 @@ class GetCryptoPagingDataUseCaseImpl(
                     return@insertSeparators when {
                         before == null && after == null -> null
                         before == null -> UiModel.SeparatorItem("SEPERATOR")
-                        after == null -> UiModel.SeparatorItem("FOOTER")
+                        after == null -> UiModel.EndOfDataItem("FOOTER")
                         else -> UiModel.SeparatorItem("BETWEEN ITEM")
                     }
                 }

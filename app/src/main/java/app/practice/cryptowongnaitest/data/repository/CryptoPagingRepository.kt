@@ -43,8 +43,6 @@ class CryptoPagingRepositoryImpl(
             pagingSourceFactory = {
                 CryptoSearchPagingSource(
                     cryptoSearchList = cryptoSearchList,
-                    cryptoDataSource = cryptoDataSource,
-                    cryptoToModelMapper = cryptoToModelMapper
                 )
             }
         ).flow

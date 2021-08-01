@@ -10,8 +10,6 @@ import java.io.IOException
 
 class CryptoSearchPagingSource(
     private val cryptoSearchList: List<CryptoModel>?,
-    private val cryptoDataSource: CryptoDataSource,
-    private val cryptoToModelMapper: CryptoToModelMapper
 ) : PagingSource<Int, CryptoModel>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, CryptoModel> {

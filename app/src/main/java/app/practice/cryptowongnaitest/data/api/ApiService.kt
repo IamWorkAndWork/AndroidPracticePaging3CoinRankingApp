@@ -7,10 +7,7 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("v1/public/coins")
-    suspend fun searchCoins(
-        @Query("limit") limit: Int,
-        @Query("offset") offset: Int
-    ): CryptoResponse
+    suspend fun searchCoins(@Query("limit") limit: Int, @Query("offset") offset: Int): CryptoResponse
 
     @GET("v1/public/coins")
     suspend fun searchCoinsByPrefix(@Query("prefix") prefix: String): CryptoResponse

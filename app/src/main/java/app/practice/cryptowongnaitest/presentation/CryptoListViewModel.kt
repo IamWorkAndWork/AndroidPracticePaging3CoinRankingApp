@@ -29,7 +29,6 @@ class CryptoListViewModel(
     private val savedStateHandle: SavedStateHandle
 ) : BaseViewModel() {
 
-    var showLoading = MutableLiveData<Boolean>()
     var networkStatus = false
 
     val state: StateFlow<UiState>
@@ -81,9 +80,6 @@ class CryptoListViewModel(
         } else {
 
             return getSearchCryptoDataUseCase.execute(searchQuery = searchQuery)
-                .onStart {
-                    showLoading.value = true
-                }
                 .flatMapMerge { cryptoSearchList ->
                     getSearchCryptoPagingDataUseCase.execute(cryptoSearchList = cryptoSearchList)
                 }

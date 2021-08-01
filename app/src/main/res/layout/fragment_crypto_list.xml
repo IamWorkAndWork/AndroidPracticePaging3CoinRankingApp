@@ -6,7 +6,8 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -19,11 +20,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/search_background"
-                android:drawableStart="@drawable/ic_search"
+                android:drawableStart="@drawable/search_icon_drawable"
                 android:hint="@string/search"
                 android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:selectAllOnFocus="true"
+                android:textSize="@dimen/text_search_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -45,7 +47,7 @@
                 android:layout_height="0dp"
                 android:gravity="center"
                 android:text="@string/no_results"
-                android:textSize="@dimen/text_description_size"
+                android:textSize="@dimen/text_no_data_size"
                 android:visibility="gone"
                 app:drawableRightCompat="@drawable/ic_sentiment_very_dissatisfied"
                 app:layout_constraintBottom_toBottomOf="parent"

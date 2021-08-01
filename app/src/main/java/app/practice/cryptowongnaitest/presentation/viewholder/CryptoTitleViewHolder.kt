@@ -3,7 +3,6 @@ package app.practice.cryptowongnaitest.presentation.viewholder
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import app.practice.cryptowongnaitest.databinding.ItemCryptoDefaultBinding
 import app.practice.cryptowongnaitest.databinding.ItemCryptoTitleBinding
 import app.practice.cryptowongnaitest.domain.models.UiModel
 
@@ -18,9 +17,13 @@ class CryptoTitleViewHolder(private val binding: ItemCryptoTitleBinding) :
         }
     }
 
-    fun bind(model: UiModel.CryptoTitleItem) {
+    fun bind(model: UiModel.CryptoTitleItem, listener: (UiModel) -> Unit) {
         with(binding) {
             uiModel = model.crypto
+
+            root.setOnClickListener {
+                listener.invoke(model)
+            }
         }
     }
 

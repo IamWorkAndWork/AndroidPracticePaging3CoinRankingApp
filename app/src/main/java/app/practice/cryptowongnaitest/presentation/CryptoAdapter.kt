@@ -11,7 +11,8 @@ import app.practice.cryptowongnaitest.presentation.viewholder.CryptoTitleViewHol
 import app.practice.cryptowongnaitest.presentation.viewholder.EndOfDataViewHolder
 import app.practice.cryptowongnaitest.presentation.viewholder.SeperatorItemViewHolder
 
-class CryptoAdapter() : PagingDataAdapter<UiModel, RecyclerView.ViewHolder>(diffItem) {
+class CryptoAdapter(private val listener: (UiModel) -> Unit) :
+    PagingDataAdapter<UiModel, RecyclerView.ViewHolder>(diffItem) {
 
     companion object {
         private val diffItem = object : DiffUtil.ItemCallback<UiModel>() {
@@ -44,10 +45,10 @@ class CryptoAdapter() : PagingDataAdapter<UiModel, RecyclerView.ViewHolder>(diff
         val item = getItem(position)
         when (holder) {
             is CryptoDefaultViewHolder -> {
-                holder.bind(item as UiModel.CryptoDefaultItem)
+                holder.bind(item as UiModel.CryptoDefaultItem, listener)
             }
             is CryptoTitleViewHolder -> {
-                holder.bind(item as UiModel.CryptoTitleItem)
+                holder.bind(item as UiModel.CryptoTitleItem, listener)
             }
             is EndOfDataViewHolder -> {
                 holder.bind(item as UiModel.EndOfDataItem)
