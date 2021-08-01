@@ -31,8 +31,9 @@ class GetSearchCryptoPagingDataUseCaseImpl(
                     cryptoUiModelMapper.toUiModel(cryptoModel = cryptoModel, index = index)
                 }.insertSeparators { before: UiModel?, after: UiModel? ->
                     return@insertSeparators when {
+                        before == null && after == null -> null
                         before == null -> UiModel.SeparatorItem("SEPERATOR")
-                        after == null -> UiModel.EndOfDataItem("FOOTER")
+                        after == null -> UiModel.SeparatorItem("FOOTER")
                         else -> UiModel.SeparatorItem("BETWEEN ITEM")
                     }
                 }

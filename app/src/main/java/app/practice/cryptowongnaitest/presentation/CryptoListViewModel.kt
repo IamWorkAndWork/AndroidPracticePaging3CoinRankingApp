@@ -74,14 +74,16 @@ class CryptoListViewModel(
     @OptIn(FlowPreview::class)
     private fun searchRepo(searchQuery: String): Flow<PagingData<UiModel>> {
         if (searchQuery.isEmpty()) {
+
             return getCryptoPagingDataUseCase.execute()
                 .cachedIn(viewModelScope)
+
         } else {
+
             return getSearchCryptoDataUseCase.execute(searchQuery = searchQuery)
                 .onStart {
                     showLoading.value = true
                 }
-                .flowOn(Dispatchers.Main)
                 .flatMapMerge { cryptoSearchList ->
                     getSearchCryptoPagingDataUseCase.execute(cryptoSearchList = cryptoSearchList)
                 }

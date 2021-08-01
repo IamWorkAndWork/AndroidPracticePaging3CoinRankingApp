@@ -36,11 +36,6 @@ class CryptoSearchPagingSource(
 
             val response = cryptoSearchList?.subList(offset, limit)
 
-//            println("getCoinsByDefault offSet search = " + offset + " | nextKey = " + nextKey + " | limit = $limit | totalSize = $totalSize")
-//            response?.map {
-//                println("getCoinsByDefault Id = ${it.id} | ${it.name}")
-//            }
-
             LoadResult.Page(
                 data = response ?: emptyList(),
                 prevKey = null,

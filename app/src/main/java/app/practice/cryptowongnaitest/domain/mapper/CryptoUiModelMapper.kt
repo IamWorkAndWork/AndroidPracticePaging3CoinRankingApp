@@ -8,8 +8,8 @@ class CryptoUiModelMapper {
     fun toUiModel(cryptoModel: CryptoModel, index: Int): UiModel {
         val mod = index % 5
         return when (mod == 0) {
-            true -> UiModel.CryptoTitleItem(cryptoModel)
-            false -> UiModel.CryptoDefaultItem(cryptoModel)
+            true -> UiModel.CryptoTitleItem(cryptoModel.id, cryptoModel)
+            false -> UiModel.CryptoDefaultItem(cryptoModel.id, cryptoModel)
         }
     }
 

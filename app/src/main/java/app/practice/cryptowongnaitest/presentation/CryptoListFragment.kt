@@ -23,11 +23,11 @@ class CryptoListFragment : BaseFragment<FragmentCryptoListBinding>() {
 
     private val cryptoListViewModel by viewModel<CryptoListViewModel>()
 
-    private val cryptoEpoxyController by lazy {
-        CryptoEpoxyController()
-    }
     private val networkListener by lazy {
         NetworkListener()
+    }
+    private val adapter by lazy {
+        CryptoAdapter()
     }
     private var isPullToRefresh = false
 
@@ -88,7 +88,7 @@ class CryptoListFragment : BaseFragment<FragmentCryptoListBinding>() {
 
     private fun refreshData(onQueryChanged: (UiAction) -> Unit) {
         isPullToRefresh = true
-        cryptoEpoxyController.refresh()
+        adapter.refresh()
         onQueryChanged(
             UiAction.Search(searchQuery = "")
         )
@@ -98,7 +98,9 @@ class CryptoListFragment : BaseFragment<FragmentCryptoListBinding>() {
 
         cryptoRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = cryptoEpoxyController.adapter
+            adapter = this@CryptoListFragment.adapter.withLoadStateFooter(
+                footer = LoadingStateAdapter()
+            )
         }
 
         val pagingData = uiState.map {
@@ -107,24 +109,18 @@ class CryptoListFragment : BaseFragment<FragmentCryptoListBinding>() {
 
         lifecycleScope.launch {
             pagingData.collectLatest { pagingData ->
-                cryptoEpoxyController.submitData(pagingData = pagingData)
+                adapter.submitData(pagingData = pagingData)
             }
         }
 
-        cryptoEpoxyController.addLoadStateListener { loadState ->
+        adapter.addLoadStateListener { loadState ->
 
             val isListEmpty =
-                loadState.refresh is LoadState.NotLoading && cryptoEpoxyController.adapter.itemCount == 0
-
+                loadState.refresh is LoadState.NotLoading && adapter.itemCount == 0
             noDataTextView.isVisible = isListEmpty
-
-//            cryptoRecyclerView.isVisible =
-//                loadState.source.refresh is LoadState.NotLoading || loadState.mediator?.refresh is LoadState.NotLoading
 
             val isLoading = loadState.source.refresh is LoadState.Loading
             progressBar.isVisible = isLoading
-
-//            println("pagingData isListEmpty = "+isListEmpty+" | isLoading = "+isLoading+" | "+ cryptoEpoxyController.adapter.itemCount)
 
             if (isLoading && isPullToRefresh) {
                 isPullToRefresh = false
@@ -133,6 +129,7 @@ class CryptoListFragment : BaseFragment<FragmentCryptoListBinding>() {
         }
 
     }
+
 
     private fun FragmentCryptoListBinding.bindSearch(
         uiState: StateFlow<UiState>,
@@ -177,13 +174,8 @@ class CryptoListFragment : BaseFragment<FragmentCryptoListBinding>() {
     }
 
     private fun FragmentCryptoListBinding.observeViewModel() {
-        cryptoListViewModel.showLoading.observe(viewLifecycleOwner,{
-            if (it){
-                progressBar.visibility = View.VISIBLE
-            }
-            else{
-                progressBar.visibility = View.GONE
-            }
+        cryptoListViewModel.showLoading.observe(viewLifecycleOwner, { isLoading ->
+            progressBar.isVisible = isLoading
         })
     }
 

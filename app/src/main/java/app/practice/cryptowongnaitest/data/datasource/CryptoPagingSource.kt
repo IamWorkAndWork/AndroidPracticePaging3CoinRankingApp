@@ -29,11 +29,6 @@ class CryptoPagingSource(
                 offset + params.loadSize
             }
 
-//            response.map {
-//                println("getCoinsByDefault Id = ${it.id} | ${it.name}")
-//            }
-//            println("getCoinsByDefault offSet = " + offset + " | nextKey = " + nextKey + " | pageSize = " + params.loadSize+" | responseSize = ${response.size}")
-
             LoadResult.Page(
                 data = response,
                 prevKey = null,
