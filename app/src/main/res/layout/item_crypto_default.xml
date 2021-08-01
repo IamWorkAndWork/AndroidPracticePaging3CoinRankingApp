@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="uiModel"
+            type="app.practice.cryptowongnaitest.domain.models.CryptoModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parentItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_space"
+            android:foreground="?selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/iconImageView"
+                loadImage="@{uiModel.iconUrl}"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_space"
+                android:lines="1"
+                android:text="@{uiModel.name}"
+                android:textSize="@dimen/text_name_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iconImageView"
+                app:layout_constraintTop_toTopOf="@+id/iconImageView"
+                tools:text="Bitcoin" />
+
+            <TextView
+                android:id="@+id/descriptionTextView"
+                parseHtml="@{uiModel.description}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/medium_space"
+                android:ellipsize="end"
+                android:lines="3"
+                android:textSize="@dimen/text_description_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iconImageView"
+                app:layout_constraintTop_toBottomOf="@id/nameTextView"
+                tools:text="Description" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="top_space">20dp</dimen>
+    <dimen name="small_space">8dp</dimen>
+    <dimen name="medium_space">16dp</dimen>
+    <dimen name="large_space">32dp</dimen>
+    <dimen name="extra_large_space">64dp</dimen>
+    <dimen name="search_box_width">0dp</dimen>
+    <dimen name="icon_size">64dp</dimen>
+    <dimen name="text_name_size">16sp</dimen>
+    <dimen name="text_description_size">14sp</dimen>
+</resources>

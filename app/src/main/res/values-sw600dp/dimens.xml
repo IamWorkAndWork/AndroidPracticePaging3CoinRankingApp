@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="search_box_width">234dp</dimen>
+    <dimen name="text_description_size">32sp</dimen>
+    <dimen name="text_name_size">22sp</dimen>
+</resources>

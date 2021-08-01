@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/drawable/ic_bitcoin_btc.xml" value="0.35859375" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/drawable/ic_search.xml" value="0.3828125" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/drawable/ic_sentiment_very_dissatisfied.xml" value="0.3828125" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/drawable/search_background.xml" value="0.3828125" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/layout-sw600dp-land/fragment_crypto.xml" value="0.41217798594847777" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/layout-sw600dp-land/fragment_crypto_list.xml" value="0.33" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/layout-sw600dp/fragment_crypto_list.xml" value="0.33" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/layout-sw600dp/item_coin_default.xml" value="0.4836165048543689" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/layout-sw600dp/item_loading.xml" value="0.25" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/layout/fragment_crypto_list.xml" value="0.2" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/layout/item_coin_default.xml" value="0.4836165048543689" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/layout/item_crypto_default.xml" value="0.5" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/layout/item_crypto_title.xml" value="0.3375" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/layout/item_load_state_footer.xml" value="0.33" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/layout/item_loading.xml" value="0.22" />
+        <entry key="..\:/Work/Android/practice/WongnaiAndroidAssignmentTest/CryptoWongnaiTest/app/src/main/res/layout/item_seperator.xml" value="0.5" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
