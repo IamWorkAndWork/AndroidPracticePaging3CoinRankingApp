@@ -4,6 +4,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import app.practice.cryptowongnaitest.R
+import coil.ImageLoader
+import coil.decode.SvgDecoder
 import coil.load
 import org.jsoup.Jsoup
 
@@ -17,7 +19,14 @@ fun parseHtml(textView: TextView, description: String?) {
 
 @BindingAdapter("loadImage")
 fun loadImage(imageView: ImageView, imageUrl: String) {
-    imageView.load(imageUrl) {
+    val svgImageLoader = ImageLoader.Builder(imageView.context)
+        .componentRegistry {
+            add(SvgDecoder(imageView.context))
+        }
+        .build()
+
+    imageView.load(imageUrl, svgImageLoader) {
+        crossfade(true)
         error(R.drawable.ic_bitcoin_btc)
     }
 }
