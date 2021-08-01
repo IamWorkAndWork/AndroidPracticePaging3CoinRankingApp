@@ -1,5 +1,6 @@
 package app.practice.cryptowongnaitest.di
 
+import app.practice.cryptowongnaitest.BuildConfig
 import app.practice.cryptowongnaitest.data.api.ApiService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -27,7 +28,11 @@ val networkModule = module {
     }
 
     single<Interceptor> {
-        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        HttpLoggingInterceptor().apply {
+            if (BuildConfig.DEBUG) {
+                setLevel(HttpLoggingInterceptor.Level.BODY)
+            }
+        }
     }
 
     single<GsonConverterFactory> {
