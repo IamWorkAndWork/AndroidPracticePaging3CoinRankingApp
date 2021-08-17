@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="uiModel"
             type="app.practice.cryptowongnaitest.domain.models.CryptoModel" />
@@ -22,11 +23,11 @@
 
             <ImageView
                 android:id="@+id/iconImageView"
-                loadImage="@{uiModel.iconUrl}"
                 android:layout_width="@dimen/icon_size"
                 android:layout_height="@dimen/icon_size"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:loadImage="@{uiModel.iconUrl}"
                 tools:src="@mipmap/ic_launcher" />
 
             <TextView
@@ -36,6 +37,7 @@
                 android:layout_marginStart="@dimen/medium_space"
                 android:lines="1"
                 android:text="@{uiModel.name}"
+                android:textColor="@color/titleColor"
                 android:textSize="@dimen/text_name_size"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -51,6 +53,7 @@
                 android:layout_marginStart="@dimen/medium_space"
                 android:ellipsize="end"
                 android:lines="3"
+                android:textColor="@color/descriptionColor"
                 android:textSize="@dimen/text_description_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iconImageView"

@@ -25,6 +25,8 @@
                 android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:selectAllOnFocus="true"
+                android:textColor="@color/searchColor"
+                android:textColorHint="@color/searchHintColor"
                 android:textSize="@dimen/text_search_size"
                 app:layout_constraintEnd_toStartOf="@id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
